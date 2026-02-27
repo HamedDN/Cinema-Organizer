@@ -1,6 +1,6 @@
 import os
-from app.utils import YEAR_REGEX
 from app.base import BaseOrganizer
+from app.utils import YEAR_REGEX
 
 
 class MovieOrganizer(BaseOrganizer):

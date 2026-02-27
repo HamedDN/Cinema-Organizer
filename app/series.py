@@ -1,6 +1,6 @@
 import os
-from app.utils import TV_PATTERN, format_season_episode
 from app.base import BaseOrganizer
+from app.utils import TV_PATTERN, format_season_episode
 
 
 class SeriesOrganizer(BaseOrganizer):
@@ -38,7 +38,7 @@ class SeriesOrganizer(BaseOrganizer):
             ext = os.path.splitext(file)[1].lower()
             formatted = format_season_episode(season, episode)
 
-            if ext == '.srt':
+            if ext == ".srt":
                 new_name = f"{series_name} {formatted} (subtitle){ext}"
             else:
                 new_name = f"{series_name} {formatted}{ext}"

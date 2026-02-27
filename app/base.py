@@ -8,10 +8,10 @@ class BaseOrganizer:
         self.base_dir = base_dir
 
     def iterate_files(self):
-        for file in os.listdir(self.base_dir):
-            path = os.path.join(self.base_dir, file)
-            if os.path.isfile(path) and is_video(file):
-                yield file, path
+        for root, _, files in os.walk(self.base_dir):
+            for file in files:
+                if is_video(file):
+                    yield file, os.path.join(root, file)
 
     def move(self, src, dst):
         if not os.path.exists(dst):
@@ -23,9 +23,9 @@ class BaseOrganizer:
     def clean_empty_folders(self):
         for root, dirs, _ in os.walk(self.base_dir, topdown=False):
             for d in dirs:
-                folder = os.path.join(root, d)
-                if os.path.isdir(folder) and not os.listdir(folder):
-                    os.rmdir(folder)
+                path = os.path.join(root, d)
+                if os.path.isdir(path) and not os.listdir(path):
+                    os.rmdir(path)
 
     def organize(self):
         raise NotImplementedError
