@@ -2,6 +2,8 @@ import tkinter as tk
 from tkinter import filedialog
 from app.series import SeriesOrganizer
 from app.movie import MovieOrganizer
+from app.console import Console
+
 
 def main():
     root = tk.Tk()
@@ -9,7 +11,7 @@ def main():
 
     base_dir = filedialog.askdirectory(title="Select folder")
     if not base_dir:
-        print("No folder selected.")
+        Console.error("No folder selected.")
         return
 
     SeriesOrganizer(base_dir).organize()
@@ -17,7 +19,8 @@ def main():
 
     SeriesOrganizer(base_dir).clean_empty_folders()
 
-    print("\nDONE")
+    Console.success("DONE")
+
 
 if __name__ == "__main__":
     main()

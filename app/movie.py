@@ -1,6 +1,7 @@
 import os
 from app.base import BaseOrganizer
 from app.utils import YEAR_REGEX
+from app.console import Console
 
 class MovieOrganizer(BaseOrganizer):
     def organize(self):
@@ -12,8 +13,8 @@ class MovieOrganizer(BaseOrganizer):
 
             year = year_match.group(1)
 
-            print(f"\nMovie detected: {file}")
-            name = input("Enter movie name: ").strip()
+            Console.info(f"Movie detected: {file}")
+            name = Console.input("Enter movie name: ").strip()
             if not name:
                 continue
 

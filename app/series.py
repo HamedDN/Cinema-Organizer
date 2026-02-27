@@ -1,6 +1,7 @@
 import os
 from app.base import BaseOrganizer
 from app.utils import TV_PATTERN, format_season_episode
+from app.console import Console
 
 class SeriesOrganizer(BaseOrganizer):
     def __init__(self, base_dir):
@@ -18,8 +19,8 @@ class SeriesOrganizer(BaseOrganizer):
             key = raw_name.strip().lower()
 
             if key not in self.series_map:
-                print(f"\nNew series detected: {raw_name}")
-                name = input("Enter series name: ").strip()
+                Console.info(f"New series detected: {raw_name}")
+                name = Console.input("Enter series name: ").strip()
                 if not name:
                     continue
                 self.series_map[key] = name
