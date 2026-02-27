@@ -3,7 +3,6 @@ from tkinter import filedialog
 from app.series import SeriesOrganizer
 from app.movie import MovieOrganizer
 
-
 def main():
     root = tk.Tk()
     root.withdraw()
@@ -19,7 +18,6 @@ def main():
     SeriesOrganizer(base_dir).clean_empty_folders()
 
     print("\nDONE")
-
 
 if __name__ == "__main__":
     main()

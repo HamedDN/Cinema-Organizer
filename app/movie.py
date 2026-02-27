@@ -2,7 +2,6 @@ import os
 from app.base import BaseOrganizer
 from app.utils import YEAR_REGEX
 
-
 class MovieOrganizer(BaseOrganizer):
     def organize(self):
         for file, src in self.iterate_files():
@@ -20,7 +19,7 @@ class MovieOrganizer(BaseOrganizer):
 
             movie_folder = os.path.join(
                 self.base_dir,
-                f"{name} ({year})"
+                name
             )
 
             self.create_folder(movie_folder)

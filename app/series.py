@@ -2,7 +2,6 @@ import os
 from app.base import BaseOrganizer
 from app.utils import TV_PATTERN, format_season_episode
 
-
 class SeriesOrganizer(BaseOrganizer):
     def __init__(self, base_dir):
         super().__init__(base_dir)
